@@ -1,6 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Space_Grotesk } from "next/font/google"
+
+const space = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500","600","700"]
+})
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -111,14 +117,20 @@ export default function Hero() {
             {/* Social trust */}
             <div className="reveal flex items-center gap-4 pt-2">
               <div className="flex -space-x-2">
-                {["🧑‍💻", "👩‍🚀", "🧑‍🍳", "👨‍🔬", "👩‍💼"].map((emoji, i) => (
-                  <div
+                {[
+                  "https://i.pravatar.cc/150?img=12",
+                  "https://i.pravatar.cc/150?img=32",
+                  "https://i.pravatar.cc/150?img=15",
+                  "https://i.pravatar.cc/150?img=44",
+                  "https://i.pravatar.cc/150?img=68",
+                ].map((src, i) => (
+                  <img
                     key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-ink-100 to-ink-200 border-2 border-cream flex items-center justify-center text-sm"
+                    src={src}
+                    alt="Founder"
+                    className="w-8 h-8 rounded-full border-2 border-white object-cover"
                     style={{ zIndex: 5 - i }}
-                  >
-                    {emoji}
-                  </div>
+                  />
                 ))}
               </div>
               <p className="text-sm text-ink-500">
@@ -152,7 +164,7 @@ export default function Hero() {
                     { label: "Growth", value: "+340%" },
                   ].map((m) => (
                     <div key={m.label} className="bg-ink-50 rounded-xl p-3 text-center">
-                      <p className="font-bold text-ink-950 text-sm">{m.value}</p>
+                      <p className={`${space.className} text-ink-950 text-sm`}>{m.value}</p>
                       <p className="text-xs text-ink-400 mt-0.5">{m.label}</p>
                     </div>
                   ))}
@@ -161,13 +173,17 @@ export default function Hero() {
                 {/* Investor avatars watching */}
                 <div className="flex items-center justify-between bg-saffron-50 rounded-xl p-3.5 border border-saffron-100">
                   <div className="flex -space-x-2">
-                    {["PM", "RS", "AK"].map((init, i) => (
-                      <div
+                    {[
+                      "https://i.pravatar.cc/150?img=23",
+                      "https://i.pravatar.cc/150?img=54",
+                      "https://i.pravatar.cc/150?img=11",
+                    ].map((src, i) => (
+                      <img
                         key={i}
-                        className="w-7 h-7 rounded-full bg-gradient-to-br from-saffron-400 to-saffron-600 border-2 border-white flex items-center justify-center text-white text-xs font-bold"
-                      >
-                        {init}
-                      </div>
+                        src={src}
+                        alt="Investor"
+                        className="w-7 h-7 rounded-full border-2 border-white object-cover"
+                      />
                     ))}
                   </div>
                   <p className="text-xs text-saffron-700 font-medium">3 investors watching</p>
@@ -177,13 +193,13 @@ export default function Hero() {
               {/* Floating badges */}
               <div className="animate-float absolute -top-6 -left-6 bg-white rounded-2xl shadow-lg shadow-ink-950/8 px-4 py-3 border border-ink-100">
                 <p className="text-xs text-ink-400 font-mono">Funding Raised</p>
-                <p className="font-display font-bold text-lg text-ink-950">₹12.4 Cr</p>
+                <p className={`${space.className} font-bold text-lg text-ink-950`}>₹12.4 Cr</p>
                 <p className="text-xs text-green-600 font-medium mt-0.5">↑ this cohort</p>
               </div>
 
               <div className="animate-float-slow absolute -bottom-4 -right-4 bg-ink-950 rounded-2xl shadow-lg px-4 py-3">
                 <p className="text-xs text-ink-400 font-mono">Active Investors</p>
-                <p className="font-display font-bold text-lg text-cream">100+</p>
+                <p className={`${space.className} font-bold text-lg text-cream`}>100+</p>
                 <p className="text-xs text-saffron-400 font-medium mt-0.5">across India</p>
               </div>
 
