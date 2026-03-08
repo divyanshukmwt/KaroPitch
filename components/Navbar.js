@@ -1,6 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Space_Grotesk } from "next/font/google"
+
+const space = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500","600","700"]
+})
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,10 +38,14 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-18 py-4">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 bg-saffron-500 rounded-xl flex items-center justify-center text-white font-display font-bold text-lg shadow-lg shadow-saffron-500/30 group-hover:shadow-saffron-500/50 transition-shadow">
-            K
+          <div className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden">
+            <img
+              src="/Logo.png"
+              alt="KaroPitch Logo"
+              className="w-6 h-6 object-contain"
+            />
           </div>
-          <span className="font-display font-bold text-xl text-ink-950">
+          <span className="font-display  font-bold text-xl text-ink-950">
             Karo<span className="text-saffron-500">Pitch</span>
           </span>
         </a>
